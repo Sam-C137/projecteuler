@@ -1,13 +1,13 @@
-package testing
+package test_utils
 
 import "testing"
 
 type Assert[V comparable] struct {
-	t testing.T
+	T *testing.T
 }
 
-func (a *Assert[V]) Equals(expected V, result V) {
+func (a *Assert[V]) ExpectEquals(expected V, result V) {
 	if expected != result {
-		a.Errorf("%v != %v; want %v, got %v", result, expected, result, expected)
+		a.T.Errorf("%v != %v; want %v, got %v", result, expected, result, expected)
 	}
 }
