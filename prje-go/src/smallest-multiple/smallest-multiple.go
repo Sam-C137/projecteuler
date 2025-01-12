@@ -34,7 +34,7 @@ func lcm(a, b int) int {
 func run(upperbound ...int) int {
 	highest := helpers.DefaultArg(upperbound, 10)
 
-	for i := 11; i < ((1 << 31) - 1); i++ {
+	for i := highest + 1; i < ((1 << 31) - 1); i++ {
 		isValid := true
 
 		for j := 1; j <= highest; j++ {

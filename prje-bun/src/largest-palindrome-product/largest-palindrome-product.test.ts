@@ -1,8 +1,7 @@
-import {describe, expect, test} from "bun:test";
+import { describe, expect, test } from "bun:test";
 
-function run(target : number): number{
+function run(target: number): number {
     let max = 0;
-
 
     for (let i = target; i > 0; i++) {
         for (let j = i; j > 0; j++) {
@@ -10,19 +9,19 @@ function run(target : number): number{
 
             if (prod < max) break;
 
-            if(isPalindrome(max)) max = prod
+            if (isPalindrome(max)) max = prod;
         }
     }
 
-    return max
+    return max;
 }
 
 function isPalindrome(num: number) {
-    return String(num) === String(num).split('').reverse().join('')
+    return String(num) === String(num).split("").reverse().join("");
 }
 
-describe('largest palindrome product', () => {
+describe("largest palindrome product", () => {
     test("Largest 3 digit number", () => {
-        expect(run(999)).toBe(906609)
-    })
+        expect(run(999)).toBe(906609);
+    });
 });
