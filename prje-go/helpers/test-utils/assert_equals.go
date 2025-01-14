@@ -8,6 +8,6 @@ type Assert[V comparable] struct {
 
 func (a *Assert[V]) ExpectEquals(expected V, result V) {
 	if expected != result {
-		a.T.Errorf("%v != %v; want %v, got %v", result, expected, result, expected)
+		a.T.Errorf("%v != %v; want %v, got %v", result, expected, expected, result)
 	}
 }
