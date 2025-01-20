@@ -7,8 +7,8 @@ import "prje-go/helpers"
 func Run(upperbound ...int) int {
 	target := helpers.DefaultArg(upperbound, 6)
 
-	count := 0
-	num := 2
+	count := 1
+	num := 3
 
 	for count < target {
 		if isPrime(num) {
@@ -17,11 +17,8 @@ func Run(upperbound ...int) int {
 				return num
 			}
 		}
-		if num == 2 {
-			num = 3
-		} else {
-			num += 2
-		}
+
+		num += 2
 	}
 
 	return 0
