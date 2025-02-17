@@ -5,25 +5,27 @@ import (
 	"maps"
 )
 
-func NewSet[T comparable]() map[T]struct{} {
+type Set[T comparable] map[T]struct{}
+
+func NewSet[T comparable]() Set[T] {
 	return make(map[T]struct{})
 }
 
-func SetAdd[T comparable](set map[T]struct{}, value T) {
+func (set Set[T]) Add(value T) {
 	_, ok := set[value]
 	if !ok {
 		set[value] = struct{}{}
 	}
 }
 
-func SetDelete[T comparable](set map[T]struct{}, value T) {
+func (set Set[T]) Remove(value T) {
 	delete(set, value)
 }
 
-func SetSize(set map[any]struct{}) int {
+func (set Set[T]) Size() int {
 	return len(set)
 }
 
-func SetValues[T comparable](set map[T]struct{}) iter.Seq[T] {
+func (set Set[T]) Values() iter.Seq[T] {
 	return maps.Keys(set)
 }

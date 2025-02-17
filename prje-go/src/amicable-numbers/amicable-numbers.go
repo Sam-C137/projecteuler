@@ -14,13 +14,13 @@ func Run(target int) int {
 		lookup[n] = div
 		if lookup[div] == n {
 			if div != n {
-				helpers.SetAdd(set, div)
-				helpers.SetAdd(set, n)
+				set.Add(div)
+				set.Add(n)
 			}
 		}
 	}
 
-	for n := range helpers.SetValues(set) {
+	for n := range set.Values() {
 		sum += n
 	}
 
